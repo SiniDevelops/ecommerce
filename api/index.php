@@ -103,20 +103,15 @@
             </div>
             <div class="row it_works">
               <?php
+                        // Hardcoded products for Vercel deployment without a database
+                        $products = [
+                            ['Name' => 'Gaming Laptop', 'Price' => '1200.00', 'ImageUrl' => 'c-1.png'],
+                            ['Name' => 'Camera Drone', 'Price' => '450.00', 'ImageUrl' => 'c-2.png'],
+                            ['Name' => 'VR Headset', 'Price' => '300.00', 'ImageUrl' => 'c-3.png'],
+                            ['Name' => 'Work Desk', 'Price' => '150.00', 'ImageUrl' => 'c-4.png']
+                        ];
 
-                        // $link = mysqli_connect('172.20.1.101', 'ecomuser', 'ecompassword', 'ecomdb');
-                        // Fetch database connection details directly from environment variables
-                        $dbHost = getenv('DB_HOST');
-                        $dbUser = getenv('DB_USER');
-                        $dbPassword = getenv('DB_PASSWORD');
-                        $dbName = getenv('DB_NAME');
-
-                        // Attempt to connect to the database
-                        $link = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);
-
-                        if ($link) {
-                        $res = mysqli_query($link, "select * from products;");
-                        while ($row = mysqli_fetch_assoc($res)) { ?>
+                        foreach ($products as $row) { ?>
 
                 <div class="col-md-3 col-sm-6 business_content">
                     <?php echo '<img src="img/' . $row['ImageUrl'] . '" alt="" style="width: 100%; max-width: 250px;">' ?>
@@ -132,25 +127,7 @@
                     </div>
                 </div>
 
-                <?php
-                        }
-                    }
-                    else {
-                ?>
-                <div style="width: 100%">
-                <div class="error-content">
-
-                    <h1>Database connection error</h1>
-                    <p>
-                    <?php
-                          echo mysqli_connect_errno() . ":" . mysqli_connect_error();
-                    ?>
-                    </p>
-                  </div>
-                  </div>
-                  <?php
-                    }
-                  ?>
+                <?php } ?>
 
 
             </div>
