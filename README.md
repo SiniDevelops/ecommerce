@@ -2,6 +2,8 @@
 
 This is a sample e-commerce application built for learning purposes.
 
+**Live Demo:** [https://ecommerce-ebon-omega.vercel.app/](https://ecommerce-ebon-omega.vercel.app/)
+
 Here's how to deploy it on CentOS systems:
 
 ## Deploy Pre-Requisites
