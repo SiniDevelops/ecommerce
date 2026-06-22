@@ -1,11 +1,14 @@
 {
-  "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.9.0"
-    }
-  },
+  "builds": [
+    { "src": "api/*.php", "use": "vercel-php@0.9.0" },
+    { "src": "css/**", "use": "@vercel/static" },
+    { "src": "js/**", "use": "@vercel/static" },
+    { "src": "img/**", "use": "@vercel/static" },
+    { "src": "fonts/**", "use": "@vercel/static" },
+    { "src": "vendors/**", "use": "@vercel/static" },
+    { "src": "scss/**", "use": "@vercel/static" }
+  ],
   "routes": [
-    { "src": "^/(css|js|img|fonts|vendors)/(.*)$", "dest": "/$1/$2" },
     { "src": "^/$", "dest": "/api/index.php" },
     { "src": "^/cart/?$", "dest": "/api/cart.php" },
     { "src": "^/contact/?$", "dest": "/api/contact.php" }
