@@ -5,6 +5,7 @@
     }
   },
   "routes": [
+    { "src": "^/(css|js|img|fonts|vendors)/(.*)$", "dest": "/$1/$2" },
     { "src": "^/$", "dest": "/api/index.php" },
     { "src": "^/cart/?$", "dest": "/api/cart.php" },
     { "src": "^/contact/?$", "dest": "/api/contact.php" }
